@@ -1,3 +1,36 @@
 /* Custom CSS to override Bootstrap's default styling */
 
-/* None yet */
+body {
+	background-color: #FEEEAF;
+	font-family: 'Cardo', serif;
+	color: #291400;
+}
+
+h1, h2, h3, h4 {
+	font-family: 'Trade Winds', cursive;
+	color: #330000;
+}
+
+header {
+	margin-top: 15px;
+	text-align: center;
+	font-family: serif;
+}
+
+main {
+	margin-top: 15px;
+	padding: 20px 20px 20px 0px ;
+}
+
+footer {
+	margin-top: 15px;
+	padding: 10px;
+	text-align: center;
+}
+
+.password {
+	text-align: center;
+}
+.password >h2{
+	font-family: sans-serif;
+}

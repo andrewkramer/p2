@@ -7,6 +7,10 @@
 		<link rel="icon" type="image/png" href="img/favicon.png"/>
 		<title>DWA15 Project 2</title>
 
+		<!-- Import Google Fonts -->
+		<link href='https://fonts.googleapis.com/css?family=Trade+Winds' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Cardo' rel='stylesheet' type='text/css'>
+		
 		<!-- Import Bootstrap CSS -->
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<!-- Import my custom CSS -->
@@ -23,11 +27,11 @@
 			</header>
 			
 			<main class="row">
-				<div class="col-md-12">
+				<div class="password col-md-12">
 					<h2><?= $password ?></h2>
 					<small>Refresh the page to generate another.</small>
 				</div>
-				<div class="col-md-12">
+				<div class="col-md-offset-3 col-md-6">
 					<h3>Background</h3>
 					<p>xkcd passwords are easier to remember and more secure that standard passwords. Use them.</p>
 				</div>
