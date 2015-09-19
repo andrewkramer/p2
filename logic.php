@@ -3,23 +3,50 @@
 	$defaultWordCount = 4;
 	$maxWordCount = 12;
 	
+	$possibleSeparators = array("", " ", ",", ".", "-", "_");
 	$defaultSeparator = " ";
 	
 	$defaultNumbers = 0;
+	$maxNumbers = 12;
 	$defaultNumberLocationRandom = true;
 	
 	$defaultSymbols = 0;
+	$maxSymbols = 12;
 	$defaultSymbolLocationRandom = true;
 	
-	//User Submitted Variables
-	$wordCount = 4;
-	$separator = " ";
+	//Validate User Submitted Variables
+	//  Assume default value unless the user submitted variable validates
+	$wordCount = $defaultWordCount;
+	if ($_GET["wordCount"] > 0 && $_GET["wordCount"] <= $maxWordCount) {
+		$wordCount = $GET["wordCount"];
+	}
 	
-	$numbers = 0;
-	$numberLocationRandom = true;
+	$separator = $defaultSeparator;
+	if (in_array($_GET["separator"], $possibleSeparators)) {
+		$separator = $_GET["separator"];
+	}
 	
-	$symbols = 0;
-	$symbolLocationRandom = true;
+	
+	$numbers = $defaultNumbers;
+	if ($_GET["numbers"] > 0 && $_GET["numbers"] <= $maxNumbers) {
+		$numbers = $_GET["numbers"];
+	}
+	
+	$numberLocationRandom = $defaultNumberLocationRandom;
+	if (is_bool($_GET["numberLocationRandom"])) {
+		$numberLocationRandom = $_GET["numberLocationRandom"];
+	}
+	
+	
+	$symbols = $defaultSymbols;
+	if ($_GET["symbols"] > 0 && $_GET["symbols"] <= $maxSymbols) {
+		$symbols = $_GET["symbols"];
+	}
+	
+	$symbolLocationRandom = $defaultSymbolLocationRandom;
+	if (is_bool($_GET["symbolLocationRandom"])) {
+		$symbolLocationRandom = $_GET["symbolLocationRandom"];
+	}
 	
 	
 	//Generate Word List
