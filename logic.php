@@ -6,24 +6,26 @@
 	$possibleSeparators = array("", " ", ",", ".", "-", "_");
 	$defaultSeparator = " ";
 	
+	$defaultSymbols = 0;
+	$maxSymbols = 12;
+	$defaultSymbolLocationRandom = true;
+	
 	$defaultNumbers = 0;
 	$maxNumbers = 12;
 	$defaultNumberLocationRandom = true;
 	
-	$defaultSymbols = 0;
-	$maxSymbols = 12;
-	$defaultSymbolLocationRandom = true;
 	
 	//Validate User Submitted Variables
 	//  Assume default value unless the user submitted variable validates
 	$wordCount = $defaultWordCount;
 	$separator = $defaultSeparator;
 	
+	$symbols = $defaultSymbols;
+	$symbolLocationRandom = $defaultSymbolLocationRandom;
+	
 	$numbers = $defaultNumbers;
 	$numberLocationRandom = $defaultNumberLocationRandom;
 	
-	$symbols = $defaultSymbols;
-	$symbolLocationRandom = $defaultSymbolLocationRandom;
 	
 	// Assume that is "wordCount" is present that the entire form has been submitted.
 	// If a user violates this assumption by modifying the URL, the only ramification
@@ -36,18 +38,18 @@
 			$separator = $_GET["separator"];
 		}
 		
-		if ($_GET["numbers"] > 0 && $_GET["numbers"] <= $maxNumbers) {
-			$numbers = $_GET["numbers"];
-		}
-		if (is_bool($_GET["numberLocationRandom"])) {
-			$numberLocationRandom = $_GET["numberLocationRandom"];
-		}
-		
 		if ($_GET["symbols"] > 0 && $_GET["symbols"] <= $maxSymbols) {
 			$symbols = $_GET["symbols"];
 		}
-		if (is_bool($_GET["symbolLocationRandom"])) {
+		if ($_GET["symbolLocationRandom"] == 0 || $_GET["symbolLocationRandom"] == 1) {
 			$symbolLocationRandom = $_GET["symbolLocationRandom"];
+		}
+		
+		if ($_GET["numbers"] > 0 && $_GET["numbers"] <= $maxNumbers) {
+			$numbers = $_GET["numbers"];
+		}
+		if ($_GET["numberLocationRandom"] == 0 || $_GET["numberLocationRandom"] == 1) {
+			$numberLocationRandom = $_GET["numberLocationRandom"];
 		}
 	}
 	
@@ -58,6 +60,8 @@
 	
 	//Generate Password
 	$password = "";
+	$addedSymbols = 0;
+	$addedNumbers = 0;
 	
 	for ($i = 0; $i < $wordCount; $i++) {
 		
@@ -67,20 +71,31 @@
 		// Append the new word to the word list
 		$password = $password . $wordList[$index];
 		
+		// Randomly append numbers and/or symbols to the end of the word if 
+		// the user requested random placement of these characters
+		if ($symbolLocationRandom) {
+			while (rand(0,1) == 1 && $addedSymbols < $symbols) {
+				$password = $password . chr(rand(33,47));
+				$addedSymbols++;
+			}
+		}
+		if ($numberLocationRandom) {
+			while (rand(0,1) == 1 && $addedNumbers < $numbers) {
+				$password = $password . rand(0,9);
+				$addedNumbers++;
+			}
+		}
+			
 		// Append separator to all but the last word
-		// else add numbers and symbols to the end of the word
+		// else add all remaining numbers and symbols to the end of the word
 		if ($i < $wordCount - 1) {
 			$password = $password . $separator;
 		} else {
-			if ($symbols > 0) {
-				for ($j = 0; $j < $symbols; $j++) {
-					$password = $password . chr(rand(33,47));
-				}
+			for (; $addedSymbols < $symbols; $addedSymbols++) {
+				$password = $password . chr(rand(33,47));
 			}
-			if ($numbers > 0) {
-				for ($j = 0; $j < $numbers; $j++) {
-					$password = $password . rand(0,9);
-				}
+			for (; $addedNumbers < $numbers; $addedNumbers++) {
+				$password = $password . rand(0,9);
 			}
 		}
 	}
