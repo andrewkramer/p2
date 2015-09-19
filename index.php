@@ -32,6 +32,35 @@
 					<small>Refresh the page to generate another.</small>
 				</div>
 				<div class="col-md-offset-3 col-md-6">
+					<form class="form-horizontal" method="get">
+						<div class="form-group">
+							<label for="wordCount" class="col-md-6 control-label">Words: </label>
+							<input id="wordCount" class="form-control" type="number" name="wordCount">
+						</div>
+						<div class="form-group">
+							<label for="separator" class="col-md-6 control-label">Separator: </label>
+							<input id="separator" class="form-control" type="text" name="separator">
+						</div>
+						<div class="form-group">
+							<label for="symbols" class="col-md-6 control-label">Symbols: </label>
+							<input id="symbols" class="form-control" type="number" name="symbols">
+						</div>
+						<div class="form-group">
+							<label for="symbolLocationRandom" class="col-md-6 control-label">Random Placment: </label>
+							<input id="symbolLocationRandom" class="form-control" type="checkbox" name="symbolLocationRandom" value="1">
+						</div>
+						<div class="form-group">
+							<label for="numbers" class="col-md-6 control-label">Numbers: </label>
+							<input id="numbers" class="form-control" type="number" name="numbers">
+						</div>
+						<div class="form-group">
+							<label for="numberLocationRandom" class="col-md-6 control-label">Random Placement: </label>
+							<input id="numberLocationRandom" class="form-control" type="checkbox" name="numberLocationRandom" value="1">
+						</div>
+						<div class="form-group">
+							<button class="btn btn-warning" type="submit" >Create Password</button>
+						</div>
+					</form>
 					<h3>Background</h3>
 					<p>xkcd passwords are easier to remember and more secure that standard passwords. Use them.</p>
 				</div>
