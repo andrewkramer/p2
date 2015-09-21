@@ -56,7 +56,7 @@
 							<label for="symbolLocationRandom" class="col-md-1 control-label">Symbol Placement:</label>
 							<div class="radio-inline">
 								<label for="symbolLocationRandom0" class="col-md-6 control-label">
-									<input id="symbolLocationRandom0" type="radio" name="symbolLocationRandom" value="0">
+									<input id="symbolLocationRandom0" type="radio" name="symbolLocationRandom" value="0" checked>
 									End of Password
 								</label>
 								<label for="symbolLocationRandom1" class="col-md-6 control-label">
@@ -73,7 +73,7 @@
 							<label for="numberLocationRandom" class="col-md-1 control-label">Number Placement:</label>
 							<div class="radio-inline">
 								<label for="numberLocationRandom0" class="col-md-6 control-label">
-									<input id="numberLocationRandom0" type="radio" name="numberLocationRandom" value="0">
+									<input id="numberLocationRandom0" type="radio" name="numberLocationRandom" value="0" checked>
 									End of Password
 								</label>
 								<label for="numberLocationRandom1" class="col-md-6 control-label">

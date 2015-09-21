@@ -16,40 +16,43 @@
 	
 	
 	//Validate User Submitted Variables
-	//  Assume default value unless the user submitted variable validates
-	$wordCount = $defaultWordCount;
-	$separator = $defaultSeparator;
 	
-	$symbols = $defaultSymbols;
-	$symbolLocationRandom = $defaultSymbolLocationRandom;
-	
-	$numbers = $defaultNumbers;
-	$numberLocationRandom = $defaultNumberLocationRandom;
-	
-	
-	// Assume that is "wordCount" is present that the entire form has been submitted.
-	// If a user violates this assumption by modifying the URL, the only ramification
-	// if that notices about the missing indexes will be thrown.
+	// If a variable is not submitted or is an illegal value, resort to default value
 	if (isset($_GET["wordCount"])) { 
-		if ($_GET["wordCount"] > 0 && $_GET["wordCount"] <= $maxWordCount) {
+		if ($_GET["wordCount"] > 1 && $_GET["wordCount"] <= $maxWordCount) {
 			$wordCount = $_GET["wordCount"];
+		} else {
+			$wordCount = $defaultWordCount;
 		}
+		
 		if (in_array($_GET["separator"], $possibleSeparators)) {
 			$separator = $_GET["separator"];
+		} else {
+			$separator = $defaultSeparator;
 		}
 		
 		if ($_GET["symbols"] > 0 && $_GET["symbols"] <= $maxSymbols) {
 			$symbols = $_GET["symbols"];
+		} else {
+			$symbols = $defaultSymbols;
 		}
+		
 		if ($_GET["symbolLocationRandom"] == 0 || $_GET["symbolLocationRandom"] == 1) {
 			$symbolLocationRandom = $_GET["symbolLocationRandom"];
+		} else {
+			$symbolLocationRandom = $defaultSymbolLocationRandom;
 		}
 		
 		if ($_GET["numbers"] > 0 && $_GET["numbers"] <= $maxNumbers) {
 			$numbers = $_GET["numbers"];
+		} else {
+			$numbers = $defaultNumbers;
 		}
+		
 		if ($_GET["numberLocationRandom"] == 0 || $_GET["numberLocationRandom"] == 1) {
 			$numberLocationRandom = $_GET["numberLocationRandom"];
+		} else {
+			$numberLocationRandom = $defaultNumberLocationRandom;
 		}
 	}
 	
