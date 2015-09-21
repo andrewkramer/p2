@@ -34,28 +34,53 @@
 				<div class="col-md-offset-3 col-md-6">
 					<form class="form-horizontal" method="get">
 						<div class="form-group">
-							<label for="wordCount" class="col-md-6 control-label">Words: </label>
+							<label for="wordCount" class="col-md-1 control-label">Words: </label>
 							<input id="wordCount" class="form-control" type="number" name="wordCount">
 						</div>
 						<div class="form-group">
-							<label for="separator" class="col-md-6 control-label">Separator: </label>
-							<input id="separator" class="form-control" type="text" name="separator">
+							<label for="separator" class="col-md-1 control-label">Separator: </label>
+							<select id="separator" class="form-control" name="separator">
+								<option value=" ">[space]</option>
+								<option value=",">,</option>
+								<option value=".">.</option>
+								<option value="-">-</option>
+								<option value="_">_</option>
+								<option value="">[none]</option>
+							</select>
 						</div>
 						<div class="form-group">
-							<label for="symbols" class="col-md-6 control-label">Symbols: </label>
+							<label for="symbols" class="col-md-1 control-label">Symbols: </label>
 							<input id="symbols" class="form-control" type="number" name="symbols">
 						</div>
 						<div class="form-group">
-							<label for="symbolLocationRandom" class="col-md-6 control-label">Random Placment: </label>
-							<input id="symbolLocationRandom" class="form-control" type="checkbox" name="symbolLocationRandom" value="1">
+							<label for="symbolLocationRandom" class="col-md-1 control-label">Symbol Placement:</label>
+							<div class="radio-inline">
+								<label for="symbolLocationRandom0" class="col-md-6 control-label">
+									<input id="symbolLocationRandom0" type="radio" name="symbolLocationRandom" value="0">
+									End of Password
+								</label>
+								<label for="symbolLocationRandom1" class="col-md-6 control-label">
+									<input id="symbolLocationRandom1" type="radio" name="symbolLocationRandom" value="1">
+									Random
+								</label>
+							</div>
 						</div>
 						<div class="form-group">
-							<label for="numbers" class="col-md-6 control-label">Numbers: </label>
+							<label for="numbers" class="col-md-1 control-label">Numbers: </label>
 							<input id="numbers" class="form-control" type="number" name="numbers">
 						</div>
 						<div class="form-group">
-							<label for="numberLocationRandom" class="col-md-6 control-label">Random Placement: </label>
-							<input id="numberLocationRandom" class="form-control" type="checkbox" name="numberLocationRandom" value="1">
+							<label for="numberLocationRandom" class="col-md-1 control-label">Number Placement:</label>
+							<div class="radio-inline">
+								<label for="numberLocationRandom0" class="col-md-6 control-label">
+									<input id="numberLocationRandom0" type="radio" name="numberLocationRandom" value="0">
+									End of Password
+								</label>
+								<label for="numberLocationRandom1" class="col-md-6 control-label">
+									<input id="numberLocationRandom1" type="radio" name="numberLocationRandom" value="1">
+									Random
+								</label>
+							</div>
 						</div>
 						<div class="form-group">
 							<button class="btn btn-warning" type="submit" >Create Password</button>
