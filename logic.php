@@ -67,7 +67,8 @@
 	}
 	
 	//Generate Word List
-	$wordList = array("Aardvark", "Beetle", "Cicada", "Dolphin", "Elk", "Fire", "Goad", "Hammer", "Ice", "Jug");
+	//$wordList = array("Aardvark", "Beetle", "Cicada", "Dolphin", "Elk", "Fire", "Goad", "Hammer", "Ice", "Jug");
+	$wordList = file("words.txt");
 	$wordListLength = count($wordList);
 	
 	
