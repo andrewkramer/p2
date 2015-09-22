@@ -67,10 +67,8 @@
 	}
 	
 	//Generate Word List
-	//$wordList = array("Aardvark", "Beetle", "Cicada", "Dolphin", "Elk", "Fire", "Goad", "Hammer", "Ice", "Jug");
-	$wordList = file("words.txt");
+	$wordList = file("words.txt");	// reads all words into an array; adds trailing space
 	$wordListLength = count($wordList);
-	
 	
 	//Generate Password
 	$password = "";
@@ -83,8 +81,8 @@
 		// Get a random word location from the list
 		$index = rand(0, $wordListLength - 1);
 		
-		// Append the new word to the word list
-		$password = $password . $wordList[$index];
+		// Append the new word to the word list, removing the trailing space
+		$password = $password . rtrim($wordList[$index]);
 		
 		// Randomly append numbers and/or symbols to the end of the word if 
 		// the user requested random placement of these characters
