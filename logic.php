@@ -17,8 +17,11 @@
 	
 	//Validate User Submitted Variables
 	
-	// If a variable is not submitted or is an illegal value, resort to default value
+	// Assume that if the first variable is submitted, then all are submited.
+	// If the user violates this assumption by modifying the URL, the only ramification
+	// if that notifications will be silently thrown.
 	if (isset($_GET["wordCount"])) { 
+		// If a given variable is not submitted or is an illegal value, resort to default value
 		if ($_GET["wordCount"] > 1 && $_GET["wordCount"] <= $maxWordCount) {
 			$wordCount = $_GET["wordCount"];
 		} else {
@@ -54,6 +57,13 @@
 		} else {
 			$numberLocationRandom = $defaultNumberLocationRandom;
 		}
+	} else { // If the variables have not been submitted, set all values to default.
+		$wordCount = $defaultWordCount;
+		$separator = $defaultSeparator;
+		$symbols = $defaultSymbols;
+		$symbolLocationRandom = $defaultSymbolLocationRandom;
+		$numbers = $defaultNumbers;
+		$numberLocationRandom = $defaultNumberLocationRandom;
 	}
 	
 	//Generate Word List
@@ -66,6 +76,7 @@
 	$addedSymbols = 0;
 	$addedNumbers = 0;
 	
+	// For each required word in the password
 	for ($i = 0; $i < $wordCount; $i++) {
 		
 		// Get a random word location from the list
