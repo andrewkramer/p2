@@ -34,3 +34,7 @@ footer {
 .password >h2{
 	font-family: sans-serif;
 }
+
+.right {
+	float: right;
+}

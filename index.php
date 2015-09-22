@@ -34,7 +34,7 @@
 				<div class="col-md-offset-3 col-md-6">
 					<form class="form-horizontal" method="get">
 						<div class="form-group">
-							<label for="wordCount" class="col-md-1 control-label">Words: </label>
+							<label for="wordCount" class="col-md-1 control-label">Words: </label><small class="right">(Max: 12)</small>
 							<input id="wordCount" class="form-control" type="number" name="wordCount">
 						</div>
 						<div class="form-group">
@@ -49,7 +49,7 @@
 							</select>
 						</div>
 						<div class="form-group">
-							<label for="symbols" class="col-md-1 control-label">Symbols: </label>
+							<label for="symbols" class="col-md-1 control-label">Symbols: </label><small class="right">(Max: 12)</small>
 							<input id="symbols" class="form-control" type="number" name="symbols">
 						</div>
 						<div class="form-group">
@@ -66,7 +66,7 @@
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="numbers" class="col-md-1 control-label">Numbers: </label>
+							<label for="numbers" class="col-md-1 control-label">Numbers: </label><small class="right">(Max: 12)</small>
 							<input id="numbers" class="form-control" type="number" name="numbers">
 						</div>
 						<div class="form-group">
